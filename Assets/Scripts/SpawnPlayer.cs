@@ -12,6 +12,5 @@ public class SpawnPlayer : MonoBehaviourPun
     {
         int index = Random.Range(0, Spawnpoints.Length);
         GameObject playerObj = PhotonNetwork.Instantiate(player.name, Spawnpoints[index].position, Quaternion.identity);
-        Camera.main.gameObject.GetComponent<FollowPlayer>().PlayerObject = playerObj;
     }
 }
