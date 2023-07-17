@@ -25,6 +25,7 @@ public class TruckManager : MonoBehaviour
         if (!SceneManager.GetSceneByName(truckSceneName).isLoaded)
         {
             SceneManager.LoadSceneAsync(truckSceneName, LoadSceneMode.Additive);
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName(truckSceneName));
         }
         else
         {
