@@ -19,8 +19,7 @@ public class TruckManager : MonoBehaviour
 
     public string truckSceneName = "Inside";
 
-    // Start is called before the first frame update
-    void Start()
+    public void DisplayTruck()
     {
         // create the truck scene
         if (!SceneManager.GetSceneByName(truckSceneName).isLoaded)

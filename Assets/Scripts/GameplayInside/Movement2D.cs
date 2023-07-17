@@ -8,10 +8,10 @@ public class Movement2D : MonoBehaviourPun
     [SerializeField] float movespeed = 1f;
 
     private bool isMoving = false;
-    private ContactFilter2D filter = new ContactFilter2D();
+    private LayerMask layerMask;
 
     void Start() {
-        filter.SetLayerMask(LayerMask.GetMask("InsideFront"));
+        layerMask = LayerMask.GetMask("InsideFront");
     }
 
     void Update()
@@ -44,8 +44,7 @@ public class Movement2D : MonoBehaviourPun
     }
 
     private bool isWalkable(Vector3 targetPos) {
-        List<Collider2D> results = new List<Collider2D>();
-        if(Physics2D.OverlapCollider(gameObject.GetComponent<Collider2D>(), filter, results) > 0) {
+        if(Physics2D.OverlapCircle(targetPos, 0.3f, layerMask) != null) {
             return false;
         }
         return true;

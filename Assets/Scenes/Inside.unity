@@ -2699,8 +2699,8 @@ MonoBehaviour:
   OnReinitRenderTexture:
     m_PersistentCalls:
       m_Calls: []
-  requiredWidth: 400
-  requiredHeight: 400
+  requiredWidth: 1080
+  requiredHeight: 720
   renderTexture: {fileID: 0}
 --- !u!1 &1555138335
 GameObject:
