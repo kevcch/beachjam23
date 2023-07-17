@@ -35,7 +35,6 @@ public class Movement2D : MonoBehaviourPun
 
     void OnMove(InputValue value)
     {
-        Debug.Log(value.Get<Vector2>());
         inputVal = value.Get<Vector2>();
     }
 
