@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class TruckManager : MonoBehaviour
 {
     public static TruckManager instance;
+    public GameObject truckView;
     private void Awake()
     {
         if (instance != null)
@@ -18,20 +19,34 @@ public class TruckManager : MonoBehaviour
     }
 
     public string truckSceneName = "Inside";
+    public string outsideSceneName = "Game";
 
-    public void DisplayTruck()
+    void Start() {
+        LoadTruck();
+    }
+
+    void LoadTruck()
     {
         // create the truck scene
         if (!SceneManager.GetSceneByName(truckSceneName).isLoaded)
         {
             SceneManager.LoadSceneAsync(truckSceneName, LoadSceneMode.Additive);
-            SceneManager.SetActiveScene(SceneManager.GetSceneByName(truckSceneName));
         }
         else
         {
             Debug.LogError("Error: truck inside scene was already loaded when TruckManager was created");
             Destroy(gameObject);
             return;
+        }
+    }
+
+    public void ToggleTruck(bool inside) {
+        if(inside) {
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName(truckSceneName));
+            truckView.SetActive(true);
+        } else {
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName(outsideSceneName));
+            truckView.SetActive(false);
         }
     }
 
