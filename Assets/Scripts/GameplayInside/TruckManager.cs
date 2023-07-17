@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 // holds the truck scene in as long as this object exists
 public class TruckManager : MonoBehaviour
@@ -41,9 +42,14 @@ public class TruckManager : MonoBehaviour
     }
 
     public void ToggleTruck(bool inside) {
+        // PlayerInput[] oldInputs = GameObject.FindObjectsOfType<PlayerInput>();
+        // foreach(PlayerInput oldInput in oldInputs) {
+        //     oldInput.enabled = false;
+        // }
         if(inside) {
             SceneManager.SetActiveScene(SceneManager.GetSceneByName(truckSceneName));
             truckView.SetActive(true);
+
         } else {
             SceneManager.SetActiveScene(SceneManager.GetSceneByName(outsideSceneName));
             truckView.SetActive(false);

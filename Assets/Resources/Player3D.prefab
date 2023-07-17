@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 8383168981095564178}
   - component: {fileID: 8383168981095564182}
   - component: {fileID: 2457896935577349670}
+  - component: {fileID: 408556242572038611}
   m_Layer: 0
   m_Name: Player3D
   m_TagString: Player
@@ -216,3 +217,33 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &408556242572038611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8383168981095564169}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: bc6635331ede744f2bb9a2e5e8161270, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Keyboard + Mouse
+  m_DefaultActionMap: 3D
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
