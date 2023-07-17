@@ -19,7 +19,7 @@ TagManager:
   - Enemy
   - InsideBG
   - InsidePlayer
-  - 
+  - InsideFront
   - 
   - 
   - 
@@ -47,4 +47,13 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 14065789
+    locked: 0
+  - name: Background
+    uniqueID: 473471039
+    locked: 0
+  - name: Player
+    uniqueID: 2955188157
+    locked: 0
+  - name: Foreground
+    uniqueID: 3985316403
     locked: 0
