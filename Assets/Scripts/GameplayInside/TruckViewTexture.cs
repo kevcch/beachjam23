@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class TruckViewTexture : MonoBehaviour
 {
@@ -9,12 +10,15 @@ public class TruckViewTexture : MonoBehaviour
 
     private void Awake()
     {
-        // this is a shitty singleton, just override it
-        // because we actually do want a new version for every scene
+        // there should only be one truck scene anyways
         instance = this;
     }
+    private void OnDestroy()
+    {
+        instance = null;
+    }
 
-    public Camera skillTreeCamera;
+    private new Camera camera;
     public UnityEvent OnReinitRenderTexture;
 
     // filled out by skill tree UI
@@ -25,6 +29,8 @@ public class TruckViewTexture : MonoBehaviour
 
     public void Start()
     {
+        camera = GetComponent<Camera>();
+
         ReinitRenderTexture();
     }
 
@@ -35,7 +41,7 @@ public class TruckViewTexture : MonoBehaviour
         // get the size from somewhere
         renderTexture = new RenderTexture(requiredWidth, requiredHeight, 0);
 
-        skillTreeCamera.targetTexture = renderTexture;
+        camera.targetTexture = renderTexture;
         OnReinitRenderTexture.Invoke();
     }
 }
