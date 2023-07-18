@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 // holds the truck scene in as long as this object exists
 public class TruckManager : MonoBehaviour
@@ -24,6 +25,7 @@ public class TruckManager : MonoBehaviour
     public string outsideSceneName = "Game";
 
     private PlayerInput[] playerInputs;
+    public UnityEvent playerChangeEvent = new UnityEvent();
 
     void Start() {
         
@@ -42,9 +44,6 @@ public class TruckManager : MonoBehaviour
             }
 
             playerInputs = GameObject.FindObjectsOfType<PlayerInput>();
-            foreach(PlayerInput input in playerInputs) {
-                Debug.Log(input.gameObject.name + ": " + input.gameObject.scene);
-            }
         }
         else
         {
@@ -87,6 +86,7 @@ public class TruckManager : MonoBehaviour
                 }
             }
         }
+        playerChangeEvent.Invoke();
     }
 
     private void OnDestroy()
