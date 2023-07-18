@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Photon.Pun;
 
 public class Movement2D : MonoBehaviourPun
@@ -9,6 +10,7 @@ public class Movement2D : MonoBehaviourPun
 
     private bool isMoving = false;
     private LayerMask layerMask;
+    private Vector2 inputVal = Vector2.zero;
 
     void Start() {
         layerMask = LayerMask.GetMask("InsideFront");
@@ -19,7 +21,7 @@ public class Movement2D : MonoBehaviourPun
         if (base.photonView.IsMine)
         {
             if(!isMoving) {
-                Vector3 targetPos = new Vector3(transform.position.x + Input.GetAxisRaw("Horizontal") , transform.position.y + Input.GetAxisRaw("Vertical"), 0);
+                Vector3 targetPos = new Vector3(transform.position.x + inputVal.x , transform.position.y + inputVal.y, 0);
                 if(isWalkable(targetPos)) {
                     StartCoroutine(Move(targetPos));
                 }
@@ -29,6 +31,11 @@ public class Movement2D : MonoBehaviourPun
         {
             transform.position += Vector3.zero;
         }
+    }
+
+    void OnMove(InputValue value)
+    {
+        inputVal = value.Get<Vector2>();
     }
 
     IEnumerator Move(Vector3 targetPos) {
