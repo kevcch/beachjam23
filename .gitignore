@@ -74,3 +74,4 @@ crashlytics-build.properties
 WebBuilds/*
 WinBuilds/*
 WebBuild*
+.DS_Store
