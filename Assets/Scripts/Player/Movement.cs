@@ -13,14 +13,14 @@ public class Movement : MonoBehaviourPun
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
-        TruckManager.instance.playerChangeEvent.AddListener(FixInput);
     }
-    void FixInput() {
-        if (!base.photonView.IsMine && gameObject.GetComponent<PlayerInput>().enabled)
-        {
-            gameObject.GetComponent<PlayerInput>().enabled = false;
-        }
-    }
+
+    // void FixInput() {
+    //     if (!base.photonView.IsMine && gameObject.GetComponent<PlayerInput>().enabled)
+    //     {
+    //         gameObject.GetComponent<PlayerInput>().enabled = false;
+    //     }
+    // }
 
     void Update()
     {

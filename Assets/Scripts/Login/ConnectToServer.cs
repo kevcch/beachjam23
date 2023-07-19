@@ -10,6 +10,11 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
     [SerializeField] TMP_InputField usernameInput;
     [SerializeField] TMP_Text buttonText;
 
+    private void Start()
+    {
+        OfflineMode.UseOfflineMode = false; // disable the offline mode
+    }
+
     public void OnClickConnect()
     {
         if(usernameInput.text.Length >= 1)

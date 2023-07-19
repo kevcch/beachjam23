@@ -11,6 +11,11 @@ public class SpawnPlayer : MonoBehaviourPun
 
     private void Start()
     {
+        Spawn();
+    }
+
+    public void Spawn()
+    {
         SceneManager.SetActiveScene(gameObject.scene);
         int index = Random.Range(0, Spawnpoints.Length);
         GameObject playerObj = PhotonNetwork.Instantiate(player.name, Spawnpoints[index].position, Quaternion.identity);
