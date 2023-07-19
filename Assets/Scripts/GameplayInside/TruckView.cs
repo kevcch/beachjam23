@@ -36,8 +36,9 @@ public class TruckView : MonoBehaviour
 
     private void OnReinitRenderTexture()
     {
-        if (TruckViewTexture.instance != null)
+        if (TruckViewTexture.instance != null && TruckViewTexture.instance.renderTexture != null)
         {
+            Debug.Log(TruckViewTexture.instance.renderTexture);
             image.texture = TruckViewTexture.instance.renderTexture;
         }
     }

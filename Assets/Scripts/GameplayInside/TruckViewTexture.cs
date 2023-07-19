@@ -37,11 +37,18 @@ public class TruckViewTexture : MonoBehaviour
     // call this when you want to reset the size of the UI for the skill tree view
     public void ReinitRenderTexture()
     {
-        Debug.Log("Init with " + requiredWidth + ", " + requiredHeight);
+        //Set width and height if they're at 0
+        if (requiredWidth == 0)
+            requiredWidth = 400;
+        if (requiredHeight == 0)
+            requiredHeight = 400;
         // get the size from somewhere
         renderTexture = new RenderTexture(requiredWidth, requiredHeight, 0);
 
         camera.targetTexture = renderTexture;
+
+        Debug.Log("Init with " + requiredWidth + ", " + requiredHeight);
+
         OnReinitRenderTexture.Invoke();
     }
 }

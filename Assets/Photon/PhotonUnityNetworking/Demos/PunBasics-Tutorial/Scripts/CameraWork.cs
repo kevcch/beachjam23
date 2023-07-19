@@ -37,7 +37,7 @@ namespace Photon.Pun.Demo.PunBasics
 
 	    [Tooltip("The Smoothing for the camera to follow the target")]
 	    [SerializeField]
-	    private float smoothSpeed = 0.125f;
+	    private float smoothSpeed = 100f;
 
         // cached transform of the target
         Transform cameraTransform;
@@ -66,7 +66,7 @@ namespace Photon.Pun.Demo.PunBasics
 		}
 
 
-		void LateUpdate()
+		void Update()
 		{
 			// The transform target may not destroy on level load, 
 			// so we need to cover corner cases where the Main Camera is different everytime we load a new scene, and reconnect when that happens
@@ -91,7 +91,7 @@ namespace Photon.Pun.Demo.PunBasics
 		/// </summary>
 		public void OnStartFollowing()
 		{	      
-			cameraTransform = Camera.main.transform;
+			cameraTransform = GameObject.Find("PlayerCamera").gameObject.transform;
 			isFollowing = true;
 			// we don't smooth anything, we go straight to the right camera shot
 			Cut();
@@ -111,7 +111,7 @@ namespace Photon.Pun.Demo.PunBasics
 			
 		    cameraTransform.position = Vector3.Lerp(cameraTransform.position, this.transform.position +this.transform.TransformVector(cameraOffset), smoothSpeed*Time.deltaTime);
 
-		    cameraTransform.LookAt(this.transform.position + centerOffset);
+		    //cameraTransform.LookAt(this.transform.position + centerOffset);
 		    
 	    }
 
