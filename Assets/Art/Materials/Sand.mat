@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sand
+  m_Shader: {fileID: -6465566751694194690, guid: 2cbe368280fca47e49612cbfbb3fb2f4, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _BUILTIN_QueueControl: 0
+    - _BUILTIN_QueueOffset: 0
+    - _DistortAmplitude: 1.76
+    - _DistortNoisePeriod: 14.3
+    - _DuneHeightShineMin: 0.72
+    - _GrainColorBlend: 1.5
+    - _GrainPeriod: 10000
+    - _GrainShineStrength: 2.31
+    - _NormalStrength: 8.03
+    - _PolygonSides: 4.26
+    - _ShineThreshold: 0.59
+    - _SineAmplitude: 1
+    - _SineFrequency: 2.26
+    - _SineRotation: 43
+    - _Smoothness: 0.521
+    - _SubstrateDuneHeightMax: 0.46
+    - _SubstrateGrainHeightMax: 0.63
+    - _SubstrateTightening: 2.23
+    - _UVScale: 1
+    m_Colors:
+    - _SandHigh: {r: 1, g: 0.9006325, b: 0.7137255, a: 1}
+    - _SandLow: {r: 0.8679245, g: 0.7285428, b: 0.5936276, a: 1}
+    - _ShineColor: {r: 0.7735849, g: 0.5941626, b: 0.49991098, a: 1}
+    - _SubstrateColor: {r: 0.4056604, g: 0.25233993, b: 0.1014151, a: 1}
+    - _UVTiling: {r: 2, g: 2, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!114 &5672257300808116144
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 639247ca83abc874e893eb93af2b5e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 0
