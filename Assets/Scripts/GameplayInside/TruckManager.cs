@@ -18,81 +18,55 @@ public class TruckManager : MonoBehaviour
             return;
         }
         instance = this;
-        StartCoroutine(LoadTruck());
     }
 
-    public string truckSceneName = "Inside";
-    public string outsideSceneName = "Game";
+    public UnityEvent insideOutsideChangeEvent = new UnityEvent();
 
-    private PlayerInput[] playerInputs;
-    public UnityEvent playerChangeEvent = new UnityEvent();
+    public bool inside = false;
 
     void Start() {
         
     }
 
-    IEnumerator LoadTruck()
-    {
-        // create the truck scene
-        if (!SceneManager.GetSceneByName(truckSceneName).isLoaded)
-        {
-            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(truckSceneName, LoadSceneMode.Additive);
+    //public void ToggleTruck(bool inside) {
+    //    if(inside) {
+    //        SceneManager.SetActiveScene(SceneManager.GetSceneByName(truckSceneName));
+    //        truckView.SetActive(true);
+    //        // Disable player input for players in old scene
+    //        foreach(PlayerInput input in playerInputs) {
+    //            if(input.gameObject.scene == SceneManager.GetSceneByName(outsideSceneName)) {
+    //                input.enabled = false;
+    //            }
+    //        }
+    //        // Enable player input for players in new scene
+    //        foreach(PlayerInput input in playerInputs) {
+    //            if(input.gameObject.scene == SceneManager.GetSceneByName(truckSceneName)) {
+    //                input.enabled = true;
+    //            }
+    //        }
 
-            while (!asyncLoad.isDone)
-            {
-                yield return null;
-            }
-
-            playerInputs = GameObject.FindObjectsOfType<PlayerInput>();
-        }
-        else
-        {
-            Debug.LogError("Error: truck inside scene was already loaded when TruckManager was created");
-            Destroy(gameObject);
-            yield return null;
-        }
-    }
-
-    public void ToggleTruck(bool inside) {
-        if(inside) {
-            SceneManager.SetActiveScene(SceneManager.GetSceneByName(truckSceneName));
-            truckView.SetActive(true);
-            // Disable player input for players in old scene
-            foreach(PlayerInput input in playerInputs) {
-                if(input.gameObject.scene == SceneManager.GetSceneByName(outsideSceneName)) {
-                    input.enabled = false;
-                }
-            }
-            // Enable player input for players in new scene
-            foreach(PlayerInput input in playerInputs) {
-                if(input.gameObject.scene == SceneManager.GetSceneByName(truckSceneName)) {
-                    input.enabled = true;
-                }
-            }
-
-        } else {
-            SceneManager.SetActiveScene(SceneManager.GetSceneByName(outsideSceneName));
-            truckView.SetActive(false);
-            // Disable player input for players in old scene
-            foreach(PlayerInput input in playerInputs) {
-                if(input.gameObject.scene == SceneManager.GetSceneByName(truckSceneName)) {
-                    input.enabled = false;
-                }
-            }
-            // Enable player input for players in new scene
-            foreach(PlayerInput input in playerInputs) {
-                if(input.gameObject.scene == SceneManager.GetSceneByName(outsideSceneName)) {
-                    input.enabled = true;
-                }
-            }
-        }
-        playerChangeEvent.Invoke();
-    }
+    //    } else {
+    //        SceneManager.SetActiveScene(SceneManager.GetSceneByName(outsideSceneName));
+    //        truckView.SetActive(false);
+    //        // Disable player input for players in old scene
+    //        foreach(PlayerInput input in playerInputs) {
+    //            if(input.gameObject.scene == SceneManager.GetSceneByName(truckSceneName)) {
+    //                input.enabled = false;
+    //            }
+    //        }
+    //        // Enable player input for players in new scene
+    //        foreach(PlayerInput input in playerInputs) {
+    //            if(input.gameObject.scene == SceneManager.GetSceneByName(outsideSceneName)) {
+    //                input.enabled = true;
+    //            }
+    //        }
+    //    }
+    //    playerChangeEvent.Invoke();
+    //}
 
     private void OnDestroy()
     {
         // destroy this scene
-        SceneManager.UnloadSceneAsync(truckSceneName);
         instance = null;
     }
 }

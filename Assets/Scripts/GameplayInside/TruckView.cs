@@ -10,8 +10,6 @@ public class TruckView : MonoBehaviour
 
     private int prevWidth, prevHeight;
 
-    public string sceneName = "Inside";
-
     private bool subscribed = false;
 
     private void Start()
@@ -19,7 +17,6 @@ public class TruckView : MonoBehaviour
         image = GetComponent<RawImage>();
         transform = GetComponent<RectTransform>();
         OnReinitRenderTexture();
-        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void Update()
