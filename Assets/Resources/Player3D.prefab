@@ -299,10 +299,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 854b5b1d7a4a84d07a9a2f049555702a, type: 3}
       propertyPath: m_Name
-      value: pink dude
+      value: PlayerModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 854b5b1d7a4a84d07a9a2f049555702a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 854b5b1d7a4a84d07a9a2f049555702a, type: 3}
+--- !u!1 &6264085779467918855 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 854b5b1d7a4a84d07a9a2f049555702a, type: 3}
+  m_PrefabInstance: {fileID: 6498668982316294998}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4804956350663368171
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6264085779467918855}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 854b5b1d7a4a84d07a9a2f049555702a, type: 3}
+  m_Controller: {fileID: 9100000, guid: 0590e7647e400c64bbab3459f873486f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &6747888125046064317 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 854b5b1d7a4a84d07a9a2f049555702a, type: 3}
