@@ -42,9 +42,9 @@ Material:
     - _SubstrateTightening: 2.23
     - _UVScale: 1
     m_Colors:
-    - _SandHigh: {r: 1, g: 0.9006325, b: 0.7137255, a: 1}
-    - _SandLow: {r: 0.8679245, g: 0.7285428, b: 0.5936276, a: 1}
-    - _ShineColor: {r: 0.7735849, g: 0.5941626, b: 0.49991098, a: 1}
+    - _SandHigh: {r: 0.990566, g: 0.8795786, b: 0.7522695, a: 1}
+    - _SandLow: {r: 0.8666667, g: 0.69433576, b: 0.5921569, a: 1}
+    - _ShineColor: {r: 0.8301887, g: 0.6476255, b: 0.5756497, a: 1}
     - _SubstrateColor: {r: 0.4056604, g: 0.25233993, b: 0.1014151, a: 1}
     - _UVTiling: {r: 2, g: 2, b: 0, a: 0}
   m_BuildTextureStacks: []
