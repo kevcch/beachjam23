@@ -9,9 +9,16 @@ public class Dispenser : MonoBehaviour, IInteractable
     public bool _enablePrompt = true;
     public bool EnablePrompt => _enablePrompt;
 
+    public int price;
+    public ItemScriptableObject item;
+
     public bool Interact(Interactor interactor)
     {
-        Debug.Log("Dispense Item");
-        return true;
+        if (GameDataManager.instance.currency > price && interactor.gameObject.GetComponent<PlayerItemManager>().GetNumItems() < 4) {
+            GameDataManager.instance.currency -= price;
+            interactor.gameObject.GetComponent<PlayerItemManager>().AddItem(item);
+            return true;
+        }
+        return false;
     }
 }
