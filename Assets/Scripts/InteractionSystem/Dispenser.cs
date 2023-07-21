@@ -6,6 +6,9 @@ public class Dispenser : MonoBehaviour, IInteractable
 {
     [SerializeField] private string _prompt;
     public string InteractionPrompt => _prompt;
+    public bool _enablePrompt = true;
+
+    public bool enablePrompt => _enablePrompt;
 
     public bool Interact(Interactor interactor)
     {

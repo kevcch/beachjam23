@@ -24,12 +24,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5074379517987154645}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.48799998, z: 0.558}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8383168981095564175}
-  m_RootOrder: 0
+  m_Father: {fileID: 6747888125046064317}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8383168981095564169
 GameObject:
@@ -68,7 +68,6 @@ Transform:
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 2923729581448180342}
   - {fileID: 6747888125046064317}
   - {fileID: 253572574589528013}
   m_Father: {fileID: 0}
@@ -116,9 +115,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10e34a8b7835214596520ff75be4ee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementForce: 200
-  counterMovementForce: 20
+  movementForce: 70
+  counterMovementForce: 15
   rotationSpeed: 10
+  drivingVehicle: 0
+  vehicleTransform: {fileID: 0}
 --- !u!114 &8383168981095564182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,7 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactionPoint: {fileID: 2923729581448180342}
-  _interactionPointRadius: 0.3
+  _interactionPointRadius: 0.4
   _interactableMask:
     serializedVersion: 2
     m_Bits: 64
@@ -257,7 +258,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6010158929258453881, guid: 5b725a7fa191a4e248c2070d48333fd0, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6010158929258453881, guid: 5b725a7fa191a4e248c2070d48333fd0, type: 3}
       propertyPath: m_AnchorMax.x
@@ -358,7 +359,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 854b5b1d7a4a84d07a9a2f049555702a, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 854b5b1d7a4a84d07a9a2f049555702a, type: 3}
       propertyPath: m_LocalScale.x

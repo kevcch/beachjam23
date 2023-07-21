@@ -12,12 +12,14 @@ public class PlayerMovement : MonoBehaviourPun
     private Vector2 inputVal = Vector2.zero;
     private GameObject playerModel;
 
-    private bool drivingVehicle = false;
+    public bool drivingVehicle = false;
+    [SerializeField] public Transform vehicleTransform;
 
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
         playerModel = transform.Find("PlayerModel").gameObject;
+        
     }
 
     void FixedUpdate()
@@ -36,10 +38,33 @@ public class PlayerMovement : MonoBehaviourPun
                     playerModel.transform.rotation = Quaternion.RotateTowards(playerModel.transform.rotation, toRotation, rotationSpeed);
                 }
             }
+            if (drivingVehicle) {
+                transform.position = vehicleTransform.position;
+                EventBus.Publish<MoveVehicleEvent>(new MoveVehicleEvent(inputVal));
+                if (Input.GetKeyDown(KeyCode.Escape)) {
+                    VehicleMode(false, null);
+                    EventBus.Publish<VehicleActivationEvent>(new VehicleActivationEvent(false));
+
+                }
+            }
         }
     }
 
-
+    public void VehicleMode(bool vehicleMode, Transform _vehicleTransform) {
+        if (vehicleMode)
+        {
+            gameObject.GetComponent<Collider>().isTrigger = vehicleMode;
+            rigidbody.useGravity = false;
+            drivingVehicle = vehicleMode;
+            vehicleTransform = _vehicleTransform;
+        }
+        else {
+            gameObject.GetComponent<Collider>().isTrigger = vehicleMode;
+            rigidbody.useGravity = true;
+            drivingVehicle = vehicleMode;
+        }
+        
+    }
 
     void OnMove(InputValue value)
     {
