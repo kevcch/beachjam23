@@ -241,8 +241,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 821d3ff05f3f94a36809bef5dcabea47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementForce: 200
-  counterMovementForce: 20
+  movementForce: 500
+  counterMovementForce: 70
   rotationSpeed: 10
   truckModel: {fileID: 4330216373007615987}
   vehicleActive: 0

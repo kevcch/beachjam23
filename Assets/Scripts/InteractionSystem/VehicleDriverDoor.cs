@@ -7,6 +7,7 @@ public class VehicleDriverDoor : MonoBehaviour, IInteractable
     [SerializeField] private string _prompt;
     public string InteractionPrompt => _prompt;
     public GameObject vehicle;
+    public bool EnablePrompt => !vehicle.GetComponent<VehicleMovement>().vehicleActive;
     public bool Interact(Interactor interactor)
     {
         if (!vehicle.GetComponent<VehicleMovement>().vehicleActive) {
