@@ -297,6 +297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stackedItems: []
   stackedItemsTransform: {fileID: 1038012542805878100}
+  droppedItemPrefab: {fileID: 7397214769846420108, guid: fdede188dc590434a9d87f806716edc8, type: 3}
 --- !u!1001 &5831177842010307764
 PrefabInstance:
   m_ObjectHideFlags: 0
