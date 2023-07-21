@@ -23,7 +23,7 @@ public class Interactor : MonoBehaviourPun
             if (_numFound > 0)
             {
                 _interactable = _colliders[0].GetComponent<IInteractable>();
-                if (_interactable != null)
+                if (_interactable != null && _interactable.EnablePrompt )
                 {
                     if (!_interactionPromptUI.IsDisplayed) _interactionPromptUI.SetUp(_interactable.InteractionPrompt);
                     if (Input.GetKeyDown(KeyCode.E))
@@ -32,6 +32,8 @@ public class Interactor : MonoBehaviourPun
 
                     }
                 }
+                if (_interactable != null && !_interactable.EnablePrompt)
+                    _interactionPromptUI.Close();
 
             }
             else {
