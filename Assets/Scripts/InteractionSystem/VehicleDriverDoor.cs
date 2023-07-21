@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class VehicleDriverDoor : MonoBehaviour, IInteractable
 {
-    [SerializeField] private string _prompt;
-    public string InteractionPrompt => _prompt;
+    public string InteractionPrompt => "Drive Truck";
     public GameObject vehicle;
     public bool EnablePrompt => !vehicle.GetComponent<VehicleMovement>().vehicleActive;
     public bool Interact(Interactor interactor)
