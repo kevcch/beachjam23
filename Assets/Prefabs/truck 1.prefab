@@ -324,7 +324,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!65 &1081530645
 BoxCollider:
@@ -351,8 +351,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 821d3ff05f3f94a36809bef5dcabea47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementForce: 500
-  counterMovementForce: 70
-  rotationSpeed: 10
+  movementForce: 30
+  counterMovementForce: 10
+  rotationSpeed: 110
+  maxSpeed: 20
+  maxBackwardsSpeed: 10
   truckModel: {fileID: 4330216373007615987}
   vehicleActive: 0

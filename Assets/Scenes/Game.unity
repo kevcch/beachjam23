@@ -8674,6 +8674,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1081530644, guid: 611aa4bad3aa7491697f66bdd67f5314, type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1081530646, guid: 611aa4bad3aa7491697f66bdd67f5314, type: 3}
+      propertyPath: movementForce
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1081530646, guid: 611aa4bad3aa7491697f66bdd67f5314, type: 3}
+      propertyPath: rotationSpeed
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 1081530646, guid: 611aa4bad3aa7491697f66bdd67f5314, type: 3}
+      propertyPath: counterMovementForce
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3986763697669496137, guid: 611aa4bad3aa7491697f66bdd67f5314, type: 3}
       propertyPath: m_RootOrder
       value: 1
