@@ -54,12 +54,14 @@ public class PlayerMovement : MonoBehaviourPun
         if (vehicleMode)
         {
             gameObject.GetComponent<Collider>().isTrigger = vehicleMode;
+            //gameObject.GetComponent<Photon.Pun.Demo.PunBasics.CameraWork>().UpdateTargetTransform(_vehicleTransform);
             rigidbody.useGravity = false;
             drivingVehicle = vehicleMode;
             vehicleTransform = _vehicleTransform;
         }
         else {
             gameObject.GetComponent<Collider>().isTrigger = vehicleMode;
+            //gameObject.GetComponent<Photon.Pun.Demo.PunBasics.CameraWork>().UpdateTargetTransform(transform);
             rigidbody.useGravity = true;
             drivingVehicle = vehicleMode;
         }
