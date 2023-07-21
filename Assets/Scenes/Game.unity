@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeb22bffd832e4558b003ac3981df7af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prompt: E
+  _prompt: Enter Vehicle
 --- !u!65 &272950849
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1369,7 +1369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70ca39b8dc4274b63ac26e6b878f7a57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prompt: E
+  _prompt: Dispense Item
 --- !u!1 &1573665623
 GameObject:
   m_ObjectHideFlags: 0
