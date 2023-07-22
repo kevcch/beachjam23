@@ -32,7 +32,7 @@ namespace Photon.Pun.Demo.PunBasics
 
 	/// </summary>
 
-	public class CameraWork : MonoBehaviour
+	public class CameraWork : MonoBehaviourPun
 
 	{
 
@@ -124,6 +124,8 @@ namespace Photon.Pun.Demo.PunBasics
         void Start()
 
 		{
+			if (base.photonView.IsMine)
+        	{
 
 			targetTransform = transform;
 
@@ -135,6 +137,7 @@ namespace Photon.Pun.Demo.PunBasics
 
 				OnStartFollowing();
 
+			}
 			}
 
 		}
@@ -223,7 +226,6 @@ namespace Photon.Pun.Demo.PunBasics
 		void Follow()
 
 		{
-
 			if(lookAt)
 			{
 				cameraOffset = -distance * targetTransform.GetChild(0).forward.normalized;
@@ -238,7 +240,6 @@ namespace Photon.Pun.Demo.PunBasics
 				cameraTransform.rotation = cameraRotationOnStart;
 				cameraTransform.position = Vector3.Lerp(cameraTransform.position, targetTransform.position + cameraOffset, smoothSpeed*Time.deltaTime);
 			}
-
 		    
 
 	    }
