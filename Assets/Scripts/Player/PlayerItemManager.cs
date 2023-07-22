@@ -23,9 +23,12 @@ public class PlayerItemManager: MonoBehaviourPun
     {
         Debug.Log(iso.objectViewPrefab + " " + iso.objectType);
         itemList.Add(new ItemClass(iso.objectViewPrefab, iso.objectType));
-        GameObject newItem = Instantiate(iso.objectViewPrefab,
+        GameObject newItem = PhotonNetwork.Instantiate(iso.objectViewPrefab.name,
             stackedItemsTransform.position + new Vector3(0, GetNumItems() * 0.3f, 0),
             stackedItemsTransform.rotation);
+        if(!newItem.GetPhotonView().AmOwner) {
+            newItem.GetPhotonView().TransferOwnership(PhotonNetwork.LocalPlayer);
+        }
         newItem.AddComponent<FollowTarget>();
         newItem.GetComponent<FollowTarget>().target = stackedItemsTransform;
         newItem.GetComponent<FollowTarget>().offset = new Vector3(0, GetNumItems() * 0.3f, 0);
@@ -35,9 +38,12 @@ public class PlayerItemManager: MonoBehaviourPun
     public void AddItem(ItemScriptableObject iso) {
         Debug.Log(iso.objectViewPrefab + " " + iso.objectType);
         itemList.Add(new ItemClass(iso.objectViewPrefab, iso.objectType));
-        GameObject newItem = Instantiate(iso.objectViewPrefab,
+        GameObject newItem = PhotonNetwork.Instantiate(iso.objectViewPrefab.name,
             stackedItemsTransform.position + new Vector3(0, GetNumItems() * 0.3f, 0),
             stackedItemsTransform.rotation);
+        if(!newItem.GetPhotonView().AmOwner) {
+            newItem.GetPhotonView().TransferOwnership(PhotonNetwork.LocalPlayer);
+        }
         newItem.AddComponent<FollowTarget>();
         newItem.GetComponent<FollowTarget>().target = stackedItemsTransform;
         newItem.GetComponent<FollowTarget>().offset = new Vector3(0, GetNumItems() * 0.3f, 0);
@@ -49,7 +55,7 @@ public class PlayerItemManager: MonoBehaviourPun
             Debug.Log("Error: Tried to remove items when none left to remove");
             return;
         }
-        Destroy(stackedItems[itemList.Count - 1]);
+        PhotonNetwork.Destroy(stackedItems[itemList.Count - 1]);
         stackedItems.RemoveAt(itemList.Count - 1);
         itemList.RemoveAt(itemList.Count - 1);
     }
@@ -61,7 +67,7 @@ public class PlayerItemManager: MonoBehaviourPun
             return;
         }
         ItemClass item = itemList[itemList.Count - 1];
-        GameObject droppedItem = Instantiate(droppedItemPrefab, stackedItemsTransform.position, stackedItemsTransform.rotation);
+        GameObject droppedItem = PhotonNetwork.Instantiate(droppedItemPrefab.name, stackedItemsTransform.position, stackedItemsTransform.rotation);
         droppedItem.GetComponent<DroppedItem>().item = new ItemClass(item.objectViewPrefab, item.objectType);
         GameObject droppedItemView = Instantiate(droppedItem.GetComponent<DroppedItem>().item.objectViewPrefab, stackedItemsTransform.position, stackedItemsTransform.rotation);
         droppedItemView.transform.parent = droppedItem.transform;
