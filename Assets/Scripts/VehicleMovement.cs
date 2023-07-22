@@ -63,6 +63,9 @@ public class VehicleMovement : MonoBehaviour
     }
     void OnVehicleActivationEvent(VehicleActivationEvent e) {
         vehicleActive = e.vehicleActive;
+        if(vehicleActive)
+            AudioSingleton.instance.audioSource.PlayOneShot(
+                            Resources.Load("Audio/Truck/truckStartingUpCut") as AudioClip);
     }
 }
 public class MoveVehicleEvent {

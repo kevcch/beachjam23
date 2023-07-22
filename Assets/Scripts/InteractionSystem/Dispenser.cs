@@ -14,15 +14,26 @@ public class Dispenser : MonoBehaviour, IInteractable
 
     public bool Interact(Interactor interactor)
     {
-        if (GameDataManager.instance.currency > price && interactor.gameObject.GetComponent<PlayerItemManager>().GetNumItems() < 4) {
+        if (GameDataManager.instance.currency > price && interactor.gameObject.GetComponent<PlayerItemManager>().GetNumItems() < 4)
+        {
             GameDataManager.instance.currency -= price;
             interactor.gameObject.GetComponent<PlayerItemManager>().AddItem(item);
+            AudioSingleton.instance.audioSource.PlayOneShot(
+                            Resources.Load("Audio/Using/moneyBuyingComplete") as AudioClip);
             return true;
         }
         else if (GameDataManager.instance.currency <= price)
+        {
             ToastManager.Toast("Can't buy that. Are you broke?");
-        else if(interactor.gameObject.GetComponent<PlayerItemManager>().GetNumItems() >= 4)
+            AudioSingleton.instance.audioSource.PlayOneShot(
+                            Resources.Load("Audio/Using/moneyNotEnough") as AudioClip);
+        }
+        else if (interactor.gameObject.GetComponent<PlayerItemManager>().GetNumItems() >= 4) {
             ToastManager.Toast("You are already carrying four items!");
+            AudioSingleton.instance.audioSource.PlayOneShot(
+                            Resources.Load("Audio/Using/moneyNotEnough") as AudioClip);
+        }
+            
         return false;
     }
 }
