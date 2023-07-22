@@ -9598,6 +9598,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: truck 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6976391816414875349, guid: 611aa4bad3aa7491697f66bdd67f5314, type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 611aa4bad3aa7491697f66bdd67f5314, type: 3}
 --- !u!1001 &848296917

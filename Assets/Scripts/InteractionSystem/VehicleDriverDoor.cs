@@ -10,7 +10,7 @@ public class VehicleDriverDoor : MonoBehaviourPun, IInteractable
     public bool EnablePrompt => !vehicle.GetComponent<VehicleMovement>().vehicleActive;
     public bool Interact(Interactor interactor)
     {
-        if (/*!vehicle.GetComponent<VehicleMovement>().vehicleActive*/vehicle.GetPhotonView().Owner == null) {
+        if (vehicle.GetPhotonView().IsRoomView || (OfflineMode.UseOfflineMode && !vehicle.GetComponent<VehicleMovement>().vehicleActive)) {
             PlayerMovement playerMovement = interactor.gameObject.GetComponent<PlayerMovement>();
             playerMovement.VehicleMode(true, vehicle.transform);
             vehicle.GetPhotonView().TransferOwnership(PhotonNetwork.LocalPlayer);
