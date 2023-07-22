@@ -13,7 +13,9 @@ public class DeliverySite : MonoBehaviour, IInteractable
     [SerializeField] public List<ItemType> itemTypeStack = new List<ItemType>();
 
     void Start() {
-        InvokeRepeating("AttemptOrderGeneration", 10, 300);
+        AttemptOrderGeneration();
+        AttemptOrderGeneration();
+        InvokeRepeating("AttemptOrderGeneration", 0, 40);
     }
 
     public bool Interact(Interactor interactor)
@@ -28,6 +30,7 @@ public class DeliverySite : MonoBehaviour, IInteractable
                 {
                     if (pim.itemList[i].objectType != itemTypeStack[i])
                     {
+                        ToastManager.Toast("Wrong order! Remember that order matters!");
                         return false;
                     }
                 }
@@ -40,7 +43,7 @@ public class DeliverySite : MonoBehaviour, IInteractable
                 return true;
             }
         }
-
+        ToastManager.Toast("Wrong order! Remember that order matters!");
         return false;
     }
     public bool HasOrder() {
@@ -49,6 +52,7 @@ public class DeliverySite : MonoBehaviour, IInteractable
     public void CompleteOrder()
     {
         GameDataManager.instance.currency += itemTypeStack.Count * 10;
+        ToastManager.Toast("Succesful order! Earned $" + itemTypeStack.Count * 10 + "!");
         itemTypeStack.Clear();
         OrderBubble.SetActive(false);
     }
@@ -96,7 +100,7 @@ public class DeliverySite : MonoBehaviour, IInteractable
 
     public void AttemptOrderGeneration() {
         if (!HasOrder()) {
-            if (Random.Range(0, 1f) < 0.25f) {
+            if (Random.Range(0, 1f) < 0.10f) {
                 GenerateOrder();
                 Debug.Log("Order created!");
             }

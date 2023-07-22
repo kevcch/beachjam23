@@ -8,7 +8,7 @@ public class PlayerAnimation : MonoBehaviour
     Vector3 previousPos;
     private void Start()
     {
-        animator = transform.Find("PlayerModel").gameObject.GetComponent<Animator>();
+        animator = transform.Find("PlayerModel").gameObject.GetComponentInChildren<Animator>();
         previousPos = transform.position;
     }
     private void FixedUpdate()
