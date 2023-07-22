@@ -111,6 +111,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vehicle: {fileID: 4330216373007615987}
+--- !u!1 &386180765
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 386180766}
+  m_Layer: 6
+  m_Name: ExitPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &386180766
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386180765}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: -6.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 488203496}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &488203495
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,7 +173,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.00457, z: -0.02828}
   m_LocalScale: {x: 0.013803999, y: 0.01821945, z: 0.00084983}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 386180766}
   m_Father: {fileID: 3986763697669496137}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -221,6 +253,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69c046e5f047a44b6833f0afbe6ec6b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  truck: {fileID: 4330216373007615987}
+  inside: {fileID: 0}
+  insideOverlay: {fileID: 0}
 --- !u!1 &4330216373007615987
 GameObject:
   m_ObjectHideFlags: 0
