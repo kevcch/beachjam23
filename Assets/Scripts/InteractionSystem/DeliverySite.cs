@@ -30,6 +30,8 @@ public class DeliverySite : MonoBehaviour, IInteractable
                 {
                     if (pim.itemList[i].objectType != itemTypeStack[i])
                     {
+                        AudioSingleton.instance.audioSource.PlayOneShot(
+                            Resources.Load("Audio/Delivery/deliveryWrongOrder") as AudioClip);
                         ToastManager.Toast("Wrong order! Remember that order matters!");
                         return false;
                     }
@@ -43,6 +45,8 @@ public class DeliverySite : MonoBehaviour, IInteractable
                 return true;
             }
         }
+        AudioSingleton.instance.audioSource.PlayOneShot(
+                            Resources.Load("Audio/Delivery/deliveryWrongOrder") as AudioClip);
         ToastManager.Toast("Wrong order! Remember that order matters!");
         return false;
     }
@@ -53,6 +57,8 @@ public class DeliverySite : MonoBehaviour, IInteractable
     {
         GameDataManager.instance.currency += itemTypeStack.Count * 10;
         ToastManager.Toast("Succesful order! Earned $" + itemTypeStack.Count * 10 + "!");
+        AudioSingleton.instance.audioSource.PlayOneShot(
+                            Resources.Load("Audio/Delivery/deliverySuccess") as AudioClip);
         itemTypeStack.Clear();
         OrderBubble.SetActive(false);
     }

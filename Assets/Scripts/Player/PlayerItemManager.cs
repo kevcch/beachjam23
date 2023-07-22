@@ -67,6 +67,8 @@ public class PlayerItemManager: MonoBehaviourPun
         droppedItemView.transform.parent = droppedItem.transform;
 
         RemoveItem();
+        AudioSingleton.instance.audioSource.PlayOneShot(
+                            Resources.Load("Audio/Using/dropSound") as AudioClip);
     }
 
     public int GetNumItems() {
