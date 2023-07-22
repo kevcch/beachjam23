@@ -38,6 +38,8 @@ namespace Photon.Pun.Demo.PunBasics
 
 		public Transform targetTransform;
 
+		public bool lookAt = true;
+
         #region Private Fields
 
 
@@ -86,7 +88,7 @@ namespace Photon.Pun.Demo.PunBasics
 
         Transform cameraTransform;
 
-
+		Quaternion cameraRotationOnStart;
 
 		// maintain a flag internally to reconnect if target is lost or camera is switched
 
@@ -163,7 +165,7 @@ namespace Photon.Pun.Demo.PunBasics
 
 			if (isFollowing) {
 
-				Follow ();
+				Follow();
 
 			}
 
@@ -192,6 +194,7 @@ namespace Photon.Pun.Demo.PunBasics
 		{	      
 
 			cameraTransform = GameObject.Find("PlayerCamera").gameObject.transform;
+			cameraRotationOnStart = cameraTransform.rotation;
 
 			isFollowing = true;
 
@@ -221,17 +224,20 @@ namespace Photon.Pun.Demo.PunBasics
 
 		{
 
-			cameraOffset.z = -distance;
-
-			cameraOffset.y = height;
-
-			
-
-		    cameraTransform.position = Vector3.Lerp(cameraTransform.position, targetTransform.position + cameraOffset, smoothSpeed*Time.deltaTime);
-
-
-
-		    //cameraTransform.LookAt(this.transform.position + centerOffset);
+			if(lookAt)
+			{
+				cameraOffset = -distance * targetTransform.GetChild(0).forward.normalized;
+				cameraOffset.y = height;
+				cameraTransform.position = targetTransform.position + cameraOffset;
+				cameraTransform.LookAt(targetTransform.position);
+			}
+			else
+			{
+				cameraOffset.z = -distance;
+				cameraOffset.y = height;
+				cameraTransform.rotation = cameraRotationOnStart;
+				cameraTransform.position = Vector3.Lerp(cameraTransform.position, targetTransform.position + cameraOffset, smoothSpeed*Time.deltaTime);
+			}
 
 		    
 
@@ -255,7 +261,7 @@ namespace Photon.Pun.Demo.PunBasics
 
 
 
-			cameraTransform.LookAt(targetTransform.position + centerOffset);
+			//cameraTransform.LookAt(targetTransform.position + centerOffset);
 
 		}
 

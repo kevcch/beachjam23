@@ -150,8 +150,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementForce: 70
   counterMovementForce: 15
-  rotationSpeed: 10
+  rotationSpeed: 300
+  maxSpeed: 5
+  maxBackwardsSpeed: 2
   drivingVehicle: 0
+  insideVehicle: 0
   vehicleTransform: {fileID: 0}
 --- !u!114 &8383168981095564182
 MonoBehaviour:
@@ -235,6 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 0}
+  lookAt: 1
   distance: 10.5
   height: 7
   centerOffset: {x: 0, y: 0, z: 0}

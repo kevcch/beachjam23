@@ -19,10 +19,12 @@ public class ExitTruck : MonoBehaviour, IInteractable
         // hide overlay and teleport player outside
         insideOverlay.SetActive(false);
         interactor.gameObject.transform.position = exitPoint.transform.position;
+        interactor.GetComponent<PlayerMovement>().insideVehicle = false;
 
         // make camera follow player
         CameraWork cameraWork = interactor.GetComponent<CameraWork>();
         cameraWork.UpdateTargetTransform(interactor.transform);
+        cameraWork.lookAt = true;
         return true;
     }
 }
