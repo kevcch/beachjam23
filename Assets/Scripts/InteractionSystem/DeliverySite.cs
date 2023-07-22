@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class DeliverySite : MonoBehaviour, IInteractable
+public class DeliverySite : MonoBehaviourPun, IInteractable
 {
     public string _interactionPrompt;
     public string InteractionPrompt => _interactionPrompt;
@@ -55,6 +56,7 @@ public class DeliverySite : MonoBehaviour, IInteractable
     }
     public void CompleteOrder()
     {
+        GameDataManager.instance.gameObject.GetPhotonView().TransferOwnership(PhotonNetwork.LocalPlayer);
         GameDataManager.instance.currency += itemTypeStack.Count * 10;
         ToastManager.Toast("Succesful order! Earned $" + itemTypeStack.Count * 10 + "!");
         AudioSingleton.instance.audioSource.PlayOneShot(

@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class Dispenser : MonoBehaviour, IInteractable
+public class Dispenser : MonoBehaviourPun, IInteractable
 {
     [SerializeField] private string _prompt;
     public string InteractionPrompt => _prompt;
@@ -16,6 +17,7 @@ public class Dispenser : MonoBehaviour, IInteractable
     {
         if (GameDataManager.instance.currency > price && interactor.gameObject.GetComponent<PlayerItemManager>().GetNumItems() < 4)
         {
+            GameDataManager.instance.gameObject.GetPhotonView().TransferOwnership(PhotonNetwork.LocalPlayer);
             GameDataManager.instance.currency -= price;
             interactor.gameObject.GetComponent<PlayerItemManager>().AddItem(item);
             AudioSingleton.instance.audioSource.PlayOneShot(

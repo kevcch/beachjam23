@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class GameDataManager : MonoBehaviour
+public class GameDataManager : MonoBehaviour, IPunObservable
 {
     public static GameDataManager instance;
     public int currency = 50;
@@ -24,5 +25,23 @@ public class GameDataManager : MonoBehaviour
     public float GetTimeOfDay() {
         return lightingManager.TimeOfDay;
     }
+
+    #region IPunObservable implementation
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            // We own this player: send the others our data
+            stream.SendNext(currency);
+        }
+        else
+        {
+            // Network player, receive data
+            this.currency = (int)stream.ReceiveNext();
+        }
+    }
+
+    #endregion
 
 }
