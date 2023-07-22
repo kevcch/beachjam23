@@ -20,10 +20,12 @@ public class EnterTruck : MonoBehaviour, IInteractable
         // show overlay and teleport player into "Inside"
         insideOverlay.SetActive(true);
         interactor.gameObject.transform.position = inside.transform.Find("Entrance").transform.position;
+        interactor.GetComponent<PlayerMovement>().insideVehicle = true;
 
         // make camera follow truck
         CameraWork cameraWork = interactor.GetComponent<CameraWork>();
         cameraWork.UpdateTargetTransform(truck.transform);
+        cameraWork.lookAt = false;
         return true;
     }
 }
