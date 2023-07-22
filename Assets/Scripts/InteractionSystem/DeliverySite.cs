@@ -9,6 +9,7 @@ public class DeliverySite : MonoBehaviour, IInteractable
     
     public bool EnablePrompt => HasOrder();
     public GameObject OrderBubble;
+    public ParticleSystem Confetti;
 
     [SerializeField] public List<ItemType> itemTypeStack = new List<ItemType>();
 
@@ -59,6 +60,7 @@ public class DeliverySite : MonoBehaviour, IInteractable
         ToastManager.Toast("Succesful order! Earned $" + itemTypeStack.Count * 10 + "!");
         AudioSingleton.instance.audioSource.PlayOneShot(
                             Resources.Load("Audio/Delivery/deliverySuccess") as AudioClip);
+        Confetti.Play();
         itemTypeStack.Clear();
         OrderBubble.SetActive(false);
     }

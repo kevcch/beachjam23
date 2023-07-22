@@ -1536,7 +1536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70ca39b8dc4274b63ac26e6b878f7a57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prompt: E - $6 Chocolate Ice Cream
+  _prompt: E - $6 Chocolate
   _enablePrompt: 1
   price: 6
   item: {fileID: 11400000, guid: 31ff912192662490e913f495213cb77f, type: 2}
@@ -2224,7 +2224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70ca39b8dc4274b63ac26e6b878f7a57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prompt: E - $6 Vanilla Ice Cream
+  _prompt: E - $6 Vanilla
   _enablePrompt: 1
   price: 6
   item: {fileID: 11400000, guid: 57425967212bf4296bfac7cd37351c22, type: 2}
@@ -18480,7 +18480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70ca39b8dc4274b63ac26e6b878f7a57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prompt: E - $8 Strawberry Ice Cream
+  _prompt: E - $8 Strawberry
   _enablePrompt: 1
   price: 8
   item: {fileID: 11400000, guid: afb71c0309ef548bab50ef698a7ff641, type: 2}
@@ -21705,11 +21705,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: ea1e8ad32ff924922b092b35d4a7c7fd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
