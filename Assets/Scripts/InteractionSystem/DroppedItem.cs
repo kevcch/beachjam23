@@ -17,6 +17,8 @@ public class DroppedItem : MonoBehaviour, IInteractable
         if (interactor.gameObject.GetComponent<PlayerItemManager>().GetNumItems() < 4)
         {
             interactor.gameObject.GetComponent<PlayerItemManager>().AddItem(item);
+            AudioSingleton.instance.audioSource.PlayOneShot(
+                            Resources.Load("Audio/itemPickUp") as AudioClip);
             Destroy(gameObject);
             return true;
         }
