@@ -7,7 +7,7 @@ public class DeliverySite : MonoBehaviour, IInteractable
     public string _interactionPrompt;
     public string InteractionPrompt => _interactionPrompt;
     
-    public bool EnablePrompt => true;
+    public bool EnablePrompt => HasOrder();
     public GameObject OrderBubble;
 
     [SerializeField] public List<ItemType> itemTypeStack = new List<ItemType>();
@@ -40,8 +40,6 @@ public class DeliverySite : MonoBehaviour, IInteractable
                 return true;
             }
         }
-        else
-            GenerateOrder();
 
         return false;
     }
