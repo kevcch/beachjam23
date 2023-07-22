@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviourPun
                 if (Input.GetKeyDown(KeyCode.Escape)) {
                     VehicleMode(false, null);
                     EventBus.Publish<VehicleActivationEvent>(new VehicleActivationEvent(false));
-
+                    vehicleTransform.gameObject.GetPhotonView().TransferOwnership(0);
                 }
             }
         }

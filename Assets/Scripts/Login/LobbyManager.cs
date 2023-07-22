@@ -41,7 +41,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
             roomcode += Random.Range(0, digits.Length - 1);
         }
 
-        PhotonNetwork.CreateRoom(roomcode, new RoomOptions() { MaxPlayers = 6 });
+        PhotonNetwork.CreateRoom(roomcode, new RoomOptions() { MaxPlayers = 4 });
     }
 
     public override void OnJoinedRoom()
