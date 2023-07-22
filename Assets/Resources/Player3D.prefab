@@ -461,6 +461,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InteractionUI
       objectReference: {fileID: 0}
+    - target: {fileID: 4987376438098665455, guid: 5b725a7fa191a4e248c2070d48333fd0, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6010158929258453881, guid: 5b725a7fa191a4e248c2070d48333fd0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -498,6 +502,18 @@ PrefabInstance:
       value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 6010158929258453881, guid: 5b725a7fa191a4e248c2070d48333fd0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.0015
+      objectReference: {fileID: 0}
+    - target: {fileID: 6010158929258453881, guid: 5b725a7fa191a4e248c2070d48333fd0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.0015
+      objectReference: {fileID: 0}
+    - target: {fileID: 6010158929258453881, guid: 5b725a7fa191a4e248c2070d48333fd0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.0015
+      objectReference: {fileID: 0}
+    - target: {fileID: 6010158929258453881, guid: 5b725a7fa191a4e248c2070d48333fd0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -531,7 +547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6010158929258453881, guid: 5b725a7fa191a4e248c2070d48333fd0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6010158929258453881, guid: 5b725a7fa191a4e248c2070d48333fd0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
