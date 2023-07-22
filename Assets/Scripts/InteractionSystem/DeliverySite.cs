@@ -110,7 +110,6 @@ public class DeliverySite : MonoBehaviourPun, IInteractable
 
     [PunRPC]
     public void SyncOrder(string[] itemTypeStack) {
-        Debug.Log("syncing orders");
         OrderBubble.SetActive(true);
         // Deserialize
         OrderBubble.GetComponent<OrderBubble>().SetOrderBubble(ConvertItemStackBack(itemTypeStack));
@@ -121,7 +120,6 @@ public class DeliverySite : MonoBehaviourPun, IInteractable
             if (Random.Range(0, 1f) < 0.10f) {
                 List<ItemType> itemTypeStack = GenerateOrder();
                 photonView.RPC("SyncOrder", RpcTarget.All, ConvertItemStack(itemTypeStack));
-                Debug.Log("Order created!");
             }
         }
     }

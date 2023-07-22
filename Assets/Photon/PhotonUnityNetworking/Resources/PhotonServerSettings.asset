@@ -41,6 +41,10 @@ MonoBehaviour:
   - RespawnSpaceship
   - ChangeHealth
   - DestroyObject
+  - SyncOrder
+  - ParentItem
+  - AssignValues
+  - DeleteOld
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

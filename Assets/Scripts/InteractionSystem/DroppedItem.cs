@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using Photon.Pun;
 
-public class DroppedItem : MonoBehaviour, IInteractable
+public class DroppedItem : MonoBehaviourPun, IInteractable
 {
     public string _interactionPrompt = "Pick up Item";
     public string InteractionPrompt => _interactionPrompt;
@@ -19,10 +20,19 @@ public class DroppedItem : MonoBehaviour, IInteractable
             interactor.gameObject.GetComponent<PlayerItemManager>().AddItem(item);
             AudioSingleton.instance.audioSource.PlayOneShot(
                             Resources.Load("Audio/itemPickUp") as AudioClip);
-            Destroy(gameObject);
+
+            photonView.RPC("DeleteOld", RpcTarget.All);
+            
             return true;
         }
         return false;
+    }
+
+    [PunRPC]
+    public void DeleteOld() {
+        if(photonView.AmOwner) {
+            PhotonNetwork.Destroy(gameObject);
+        }
     }
 
 }
