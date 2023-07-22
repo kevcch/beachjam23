@@ -66,11 +66,12 @@ public class DeliverySite : MonoBehaviourPun, IInteractable
         itemTypeStack.Clear();
         OrderBubble.SetActive(false);
     }
-    public void GenerateOrder()
+
+    public List<ItemType> GenerateOrder()
     {
         if (HasOrder()) {
             Debug.Log("Error: order already exists!");
-            return;
+            return null;
         }
         //Cup or cone
         if (Random.Range(0, 2) == 0)
@@ -104,16 +105,39 @@ public class DeliverySite : MonoBehaviourPun, IInteractable
             }
 
         }
+        return itemTypeStack;
+    }
+
+    [PunRPC]
+    public void SyncOrder(string[] itemTypeStack) {
+        Debug.Log("syncing orders");
         OrderBubble.SetActive(true);
-        OrderBubble.GetComponent<OrderBubble>().SetOrderBubble(itemTypeStack);
+        // Deserialize
+        OrderBubble.GetComponent<OrderBubble>().SetOrderBubble(ConvertItemStackBack(itemTypeStack));
     }
 
     public void AttemptOrderGeneration() {
-        if (!HasOrder()) {
+        if (base.photonView.IsMine && !HasOrder()) {
             if (Random.Range(0, 1f) < 0.10f) {
-                GenerateOrder();
+                List<ItemType> itemTypeStack = GenerateOrder();
+                photonView.RPC("SyncOrder", RpcTarget.All, ConvertItemStack(itemTypeStack));
                 Debug.Log("Order created!");
             }
         }
+    }
+
+    private string[] ConvertItemStack(List<ItemType> itemTypeStack) {
+        List<string> itemStringStack = new List<string>();
+        foreach(ItemType item in itemTypeStack) {
+            itemStringStack.Add(item.ToString());
+        }
+        return itemStringStack.ToArray();
+    }
+    private List<ItemType> ConvertItemStackBack(string[] itemStringStack) {
+        List<ItemType> itemTypeStack = new List<ItemType>();
+        foreach(string item in itemStringStack) {
+            itemTypeStack.Add((ItemType)System.Enum.Parse( typeof(ItemType), item));
+        }
+        return itemTypeStack;
     }
 }
