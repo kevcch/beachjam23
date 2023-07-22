@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8340047733310216203}
   - component: {fileID: 8340047733310216200}
   m_Layer: 0
-  m_Name: CupView
+  m_Name: ConeView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8340047733310216201}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -65.97, y: 12.471, z: -28.9}
-  m_LocalScale: {x: 0.4, y: 0.1, z: 0.4}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.15, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 076e3bcecafbb4fcbbe3a279f700eb5c, type: 2}
+  - {fileID: 2100000, guid: b4d648c6ba9b34a6b9e5c7a822933125, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
